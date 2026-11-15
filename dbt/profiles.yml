@@ -4,3 +4,4 @@ codriver:
     dev:
       type: duckdb
       path: ../data/warehouse.duckdb
+      schema: dev
