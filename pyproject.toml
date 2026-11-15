@@ -4,6 +4,7 @@ version = "0.1.0"
 # Upper bound: dbt-core/dbt-duckdb support up to Python 3.14
 requires-python = ">=3.12,<3.15"
 dependencies = [
+    "dbt-duckdb>=1.11.1",
     "duckdb>=2.0.0",
     "python-dotenv>=1.2.4",
     "requests>=2.34.2",
