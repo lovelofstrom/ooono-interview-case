@@ -1,0 +1,8 @@
+name: codriver
+profile: codriver
+
+models:
+  codriver:
+    staging:
+      +schema: staging
+      +materialized: table
