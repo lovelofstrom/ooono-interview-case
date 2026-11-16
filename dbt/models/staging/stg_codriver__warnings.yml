@@ -1,0 +1,33 @@
+models:
+  - name: stg_codriver__warnings
+    description: >
+      Deduplicated and type cast warnings received from Co-Driver API.
+
+    columns:
+      - name: warning_id
+        description: Unique ID of the warning.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: session_id
+        description: ID of the drive the warning belongs to.
+
+      - name: user_id
+
+      - name: pin_type
+        description: >
+          Type of warning, e.g. fixed_camera, mobile_camera, hazard,
+          traffic_jam, or police.
+
+      - name: device_time
+        description: >
+          Warning time in the phone's LOCAL time, without a time zone.
+
+      - name: user_action
+        description: >
+          The driver's reaction to the warning, confirmed or dismissed. `null`
+          if none was recorded.
+
+      - name: received_at
+        description: When OOONO first received the warning, in UTC.
