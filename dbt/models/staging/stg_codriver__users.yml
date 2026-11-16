@@ -1,0 +1,26 @@
+models:
+  - name: stg_codriver__users
+    description: >
+      Most recent snapshot of each user, type cast from Co-Driver API.
+
+    columns:
+      - name: user_id
+        description: Unique ID of the user.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: created_at
+        description: When the user was created, in UTC.
+
+      - name: country
+        description: Country code of the user.
+
+      - name: platform
+        description: Phone platform, ios or android.
+
+      - name: plan
+        description: Subscription plan, free or premium.
+
+      - name: monthly_price_eur
+        description: Monthly price of the plan in EUR.
