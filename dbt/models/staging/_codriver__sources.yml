@@ -1,0 +1,10 @@
+sources:
+  - name: codriver
+    meta:
+      external_location: >-
+        read_json('../data/lake/raw/codriver/{name}/*.jsonl',
+                  filename = true, union_by_name = true, sample_size = -1)
+    tables:
+      - name: drives
+      - name: warnings
+      - name: users
