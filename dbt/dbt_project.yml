@@ -6,3 +6,6 @@ models:
     staging:
       +schema: staging
       +materialized: table
+    marts:
+      +schema: marts
+      +materialized: table
