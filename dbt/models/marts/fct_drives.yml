@@ -1,0 +1,71 @@
+models:
+  - name: fct_drives
+    description: >
+      One row per drive, with release, device and plan, and flags for restarts
+      and multiple connections.
+
+    columns:
+      - name: session_id
+        description: Unique ID of the drive.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: user_id
+        description: >
+          The user who drove, or 'unauthenticated' for drives
+          without a logged-in user.
+
+      - name: platform
+        description: Phone platform, ios or android.
+
+      - name: app_version
+        description: OOONO app version used for the drive, i.e. the release.
+
+      - name: os_version
+        description: Phone operating system version.
+
+      - name: device
+
+      - name: country
+        description: Country code of the drive.
+
+      - name: plan
+        description: >
+          The user's current subscription plan, free or premium. `null` for
+          unauthenticated drives.
+
+      - name: monthly_price_eur
+        description: >
+          Monthly price of the user's current plan in EUR. `null` for
+          unauthenticated drives.
+
+      - name: started_at
+        description: >
+          Drive start in the phone's LOCAL time, without a time zone.
+
+      - name: ended_at
+        description: Drive end in the phone's LOCAL time, without a time zone.
+
+      - name: week
+        description: >
+          Monday of the week the drive started, based on the phone's local
+          time.
+
+      - name: duration_s
+        description: Drive duration in seconds.
+
+      - name: connection_count
+        description: The number of times a connection was established.
+
+      - name: received_at
+        description: When OOONO first received the drive report, in UTC.
+
+      - name: has_multiple_connections
+        description: >
+          connection_count is above 1.
+
+      - name: restarted_within_30s
+        description: >
+          The same user started a new drive 0-29 seconds after this one ended.
+          `null` for unauthenticated drives.
