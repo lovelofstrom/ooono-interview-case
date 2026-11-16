@@ -1,0 +1,60 @@
+models:
+  - name: agg_drives_weekly
+    description: >
+      Drives per week, platform, release, and OS version, with counts of broken
+      drives and affected users. Excludes unauthenticated drives. Shares should be
+      computed from the counts, e.g. broken_drives divided by drives.
+
+    data_tests:
+      - unique:
+          column_name: concat_ws('|', week, platform, app_version, os_version)
+
+    columns:
+      - name: week
+        description: >
+          Monday of the week the drives started, based on the phone's local
+          time.
+        data_tests:
+          - not_null
+
+      - name: platform
+        description: Phone platform, ios or android.
+        data_tests:
+          - not_null
+
+      - name: app_version
+        description: OOONO app version, i.e. the release.
+        data_tests:
+          - not_null
+
+      - name: os_version
+        description: Phone operating system version.
+        data_tests:
+          - not_null
+
+      - name: drives
+        description: Number of drives.
+
+      - name: broken_drives
+        description: >
+          Drives followed by the same user's next drive within 0-29 seconds.
+
+      - name: drives_with_multiple_connections
+        description: Drives where connection_count is above 1.
+
+      - name: users
+        description: >
+          Users with at least one drive. A user who changed release or OS
+          version during the week is counted in each.
+
+      - name: users_with_broken_drives
+        description: Users with at least one broken drive.
+
+      - name: premium_users_with_broken_drives
+        description: Premium users with at least one broken drive.
+
+      - name: affected_premium_monthly_revenue_eur
+        description: >
+          Sum of the current monthly plan price of premium users with at least
+          one broken drive. A monthly amount per week, so it shouldn't be
+          summed across weeks.
