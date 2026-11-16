@@ -44,6 +44,7 @@ Run `make all` to ingest and transform the data.
   cut-outs.
 - Deployment, scheduling and CI/CD. Someone has to run the pipeline.
 - Python tests and monitoring. Only the dbt models are tested.
+- A production target.
 
 ### Where it would run at OOONO
 
