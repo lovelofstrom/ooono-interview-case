@@ -5,7 +5,7 @@ Usage: python -m ingestion
 
 import logging
 import os
-from datetime import datetime, UTC
+from datetime import UTC, datetime
 from pathlib import Path
 
 from dotenv import load_dotenv

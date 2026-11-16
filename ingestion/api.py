@@ -48,9 +48,7 @@ class ApiClient:
 
     def fetch_all(self, path: str, params: dict | None = None) -> list[dict]:
         """Fetch every record from an endpoint, following next_cursor page by page."""
-        params = dict(
-            params or {}
-        )
+        params = dict(params or {})
         params["limit"] = PAGE_SIZE
         records = []
         while True:
