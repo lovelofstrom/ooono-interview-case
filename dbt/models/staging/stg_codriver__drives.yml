@@ -1,0 +1,43 @@
+models:
+  - name: stg_codriver__drives
+    description: >
+      Deduplicated and type cast data received from Co-Driver API.
+
+    columns:
+      - name: session_id
+        description: Unique ID of the drive.
+        data_tests:
+          - unique
+          - not_null
+
+      - name: user_id
+
+      - name: platform
+        description: Phone platform, ios or android.
+
+      - name: app_version
+        description: OOONO app version used for the drive.
+
+      - name: os_version
+        description: Phone operating system version.
+
+      - name: device
+
+      - name: country
+        description: Country code of the drive.
+
+      - name: started_at
+        description: >
+          Drive start in the phone's LOCAL time, without a time zone.
+
+      - name: ended_at
+        description: Drive end in the phone's LOCAL time, without a time zone.
+
+      - name: duration_s
+        description: Drive duration in seconds.
+
+      - name: connection_count
+        description: The number of times a connection was established.
+
+      - name: received_at
+        description: When OOONO first received the drive report, in UTC.
